@@ -6,56 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "icon" type="image/x-icon" href="/images/favicon.ico">
     <title>Between Two</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="./javascripts/load_json.js"></script>
+
+    
+
 </head>
 
 
 <body style="background-color:cornflowerblue; color:cornsilk">
     <div class="container-fluid bg-dark text-white text-center">
-
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Between Two</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+        
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Between Two</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
+                
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" id="headerItem" href="#">Home <span class="sr-only"></span></a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-              </ul>
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
-            </div>
-          </nav>
+                
+                <li class="nav-item active">
+                    <a class="nav-link"  id="headerItem"  href="#">Order <span class="sr-only"></span></a>
+                  </li>
+
+                  <!-- <div style="padding-right: 100px;"></div> -->
+
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" id="searchItem" style="text-align: left;" type="search" placeholder="Search for popular orders" aria-label="Search">
+                  </form>
+
+                  <!-- <div style="padding-left: 50px;"></div> -->
+
+              <li class="nav-item active">
+                <a class="nav-link" id="headerItem" href="#">Login <span class="sr-only"></span></a>
+              </li>
+
+              <li class="nav-item active">
+                <a class="nav-link" id="headerItem"  href="#">Account <span class="sr-only"></span></a>
+              </li>
+
+              
+
+              <li class="nav-item active">
+                <a class="nav-link" id="headerItem"  href="#">About <span class="sr-only"></span></a>
+              </li>
+
+              
+              
+        </div>
+      </nav> 
+
+
+
 
     </div>
-    <div class="container">
+
+
+    <div class="container-fluid">
+        <div style="padding-bottom: 50px;"></div>
+
+
         <div class="row">
             <div class="col-sm-2">
                 <img src="./images/realsandwich.png" height="100px">

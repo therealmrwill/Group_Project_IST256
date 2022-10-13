@@ -1,7 +1,7 @@
-body {
+/* body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+} */
 
 a {
   color: #00B7FF;
@@ -14,4 +14,13 @@ img{
 #images {
   display:flex;
   
+}
+
+#headerItem{
+  margin-left: 50px;
+}
+
+#searchItem{
+  margin-left: 50px;
+  width: 300px;
 }
