@@ -24,3 +24,13 @@ img{
   margin-left: 50px;
   width: 300px;
 }
+
+#prebuiltSandwiches {
+  display:flex ;
+  margin-left: 50px;
+}
+
+
+#imageBuilder{
+  display: flex;
+}
