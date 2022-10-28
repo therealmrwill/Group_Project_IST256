@@ -1,7 +1,8 @@
 [
     
-    {"title": "BLT", "image": "BLT.png" },
-    {"title": "Italian", "image": "ItalianSub.jpg" },
-    {"title": "Roast Beef", "image": "RoastBeef&Relish.jpg" }   
+    {"title": "Grilled Cheese", "image": "grilledcheese.jpg" },
+    {"title": "Italian", "image": "italian.jpg" },
+    {"title": "Roast Beef", "image": "roastbeef.jpg" } 
         
 ]
+
