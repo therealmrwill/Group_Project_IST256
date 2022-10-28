@@ -1,0 +1,12 @@
+[
+    {
+        "userName": "Enter name here",
+        "password": "Enter password here",
+        "address": "Enter address here",
+        "city": "Enter city here",
+        "state": "Enter state here",
+        "birthdayYr": 0,
+        "birthdayMo": 0,
+        "birthdayDay": 0
+    }
+]

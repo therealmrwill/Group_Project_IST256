@@ -22,4 +22,38 @@ $(document).ready(function(){
     });
   });
 
+function getInfo(){
+    $.get("/getAccountInfo", loadAccountData);
+}
+
+
+function loadAccountData(accountInfo){
+      const currentAccount = accountInfo[0];
+
+      const userName = $("#username").val(currentAccount.userName);
+      const password = $("#password").val(currentAccount.password);
+      const address = $("#streetAddress").val(currentAccount.address);
+      const city = $("#city").val(currentAccount.city);
+      const state = $("#state").val(currentAccount.state);
+      const birthdayYr = $("#BirthdayYr").val(currentAccount.birthdayYr);
+      const birthdayMo = $("#BirthdayMo").val(currentAccount.birthdayMo);
+      const birthdayDay = $("#BirthDay").val(currentAccount.birthdayDay);
+      
+    
+} 
+
+
+function saveAccountData(){
+    const username = $('#updateUsername').value;
+    const password = $('#updatePassword').value;
+    const address = $("#streetAddress").value;
+    const city = $("#city").value;
+    const state = $("#state").value;
+    const birthdayYr = $("#BirthdayYr").value;
+    const birthdayMo = $("#BirthdayMo").value;
+    const birthdayDay = $("#BirthDay").value;
+
+    $.post("/setData", { username, password, address, city, state, birthdayYr, birthdayMo, birthdayDay }, loadAccountData);
+}
+
   
