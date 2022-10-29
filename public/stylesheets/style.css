@@ -8,12 +8,12 @@ a {
 }
 
 img{
-  width: 100px;
+  width: 300px;
 }
 
 #images {
   display:flex;
-  
+  flex-direction: row;
 }
 
 #headerItem{
