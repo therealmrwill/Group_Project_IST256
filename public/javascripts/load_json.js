@@ -12,7 +12,6 @@ $(document).ready(function (){
     $.get("../data/prebuiltSubs.json", updateImage);
 })
 
-
 $(document).ready(function(){
     $("#searchItem").on("keyup", function() {
       var value = $(this).val().toLowerCase();
