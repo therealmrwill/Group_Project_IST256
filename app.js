@@ -40,7 +40,6 @@ app.get("/getAccountInfo", function(req, res){
 
 app.post("/setData", function (req, res){
   // trips(req.body.idx).rating = req.body.rating;
-  console.log(req);
 
   accountInfo[0].username = req.body.username;
   accountInfo[0].password = req.body.password;
@@ -49,8 +48,7 @@ app.post("/setData", function (req, res){
   accountInfo[0].state = req.body.state;
   accountInfo[0].birthdayYr = req.body.birthdayYr;
   accountInfo[0].birthdayMo = req.body.birthdayMo;
-  accountInfo[0].birthDay = req.body.birthDay;
-  
+  accountInfo[0].birthdayDay = req.body.birthdayDay;
   
 
   res.setHeader('Content-Type', 'application/json');

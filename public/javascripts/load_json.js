@@ -36,7 +36,7 @@ function loadAccountData(accountInfo){
       const state = $("#state").val(currentAccount.state);
       const birthdayYr = $("#BirthdayYr").val(currentAccount.birthdayYr);
       const birthdayMo = $("#BirthdayMo").val(currentAccount.birthdayMo);
-      const birthdayDay = $("#BirthDay").val(currentAccount.birthdayDay);
+      const birthdayDay = $("#BirthdayDay").val(currentAccount.birthdayDay);
       
     
 } 
@@ -52,14 +52,7 @@ function saveAccountData(){
     const birthdayMo = $("#BirthdayMo")[0].value;
     const birthdayDay = $("#BirthdayDay")[0].value;
 
-    console.log(password);
-    console.log(address);
-    console.log(city);
-    console.log(state);
-    console.log(birthdayYr);
-    console.log(birthdayMo);
     console.log(birthdayDay);
-
 
     $.post("/setData", { username, password, address, city, state, birthdayYr, birthdayMo, birthdayDay }, loadAccountData);
 }
