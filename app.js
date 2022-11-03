@@ -30,25 +30,24 @@ app.get("/getAccountInfo", function(req, res){
   res.end(JSON.stringify(accountInfo));
 });
 
-// app.post("/setPassword", function(req, res){
-//   for(let i = 0; i < accountInfo.length; i++) {
-//     if(accountInfo[i].username === req.body.name) {
-//       accountInfo[i].password = req.body.password;
-//       break;
-//     }
-//   }
+
 
 app.post("/setData", function (req, res){
   // trips(req.body.idx).rating = req.body.rating;
 
+  //User Settings 
   accountInfo[0].username = req.body.username;
   accountInfo[0].password = req.body.password;
-  accountInfo[0].address = req.body.address;
-  accountInfo[0].city = req.body.city;
-  accountInfo[0].state = req.body.state;
   accountInfo[0].birthdayYr = req.body.birthdayYr;
   accountInfo[0].birthdayMo = req.body.birthdayMo;
   accountInfo[0].birthdayDay = req.body.birthdayDay;
+
+  //Location settings
+  accountInfo[0].address = req.body.address;
+  accountInfo[0].city = req.body.city;
+  accountInfo[0].state = req.body.state;
+  accountInfo[0].postalCode = req.body.postalCode;
+  accountInfo[0].deliveryInstructions = req.body.deliveryInstructions;
   
 
   res.setHeader('Content-Type', 'application/json');

@@ -29,32 +29,45 @@ function getInfo(){
 function loadAccountData(accountInfo){
       const currentAccount = accountInfo[0];
 
+
+      //User Info 
       const userName = $("#username").val(currentAccount.username);
       const password = $("#password").val(currentAccount.password);
-      const address = $("#streetAddress").val(currentAccount.address);
-      const city = $("#city").val(currentAccount.city);
-      const state = $("#state").val(currentAccount.state);
+
       const birthdayYr = $("#BirthdayYr").val(currentAccount.birthdayYr);
       const birthdayMo = $("#BirthdayMo").val(currentAccount.birthdayMo);
       const birthdayDay = $("#BirthdayDay").val(currentAccount.birthdayDay);
+
+      //Location Info
+      const address = $("#streetAddress").val(currentAccount.address);
+      const city = $("#city").val(currentAccount.city);
+      const state = $("#state").val(currentAccount.state);
+      const postalCode = $("#postalCode").val(currentAccount.postalCode);
+      const deliveryInstructions = $("#deliveryInstructions").val(currentAccount.deliveryInstructions);  
       
-    
+       
 } 
 
 
 function saveAccountData(){
-    const username = $('#username')[0].value;
-    const password = $('#password')[0].value;
-    const address = $("#streetAddress")[0].value;
-    const city = $("#city")[0].value;
-    const state = $("#state")[0].value;
-    const birthdayYr = $("#BirthdayYr")[0].value;
-    const birthdayMo = $("#BirthdayMo")[0].value;
-    const birthdayDay = $("#BirthdayDay")[0].value;
 
-    console.log(birthdayDay);
+  //User Info
+  const username = $('#username')[0].value;
+  const password = $('#password')[0].value;
+  const birthdayYr = $("#BirthdayYr")[0].value;
+  const birthdayMo = $("#BirthdayMo")[0].value;
+  const birthdayDay = $("#BirthdayDay")[0].value;
 
-    $.post("/setData", { username, password, address, city, state, birthdayYr, birthdayMo, birthdayDay }, loadAccountData);
+
+  //Location Info
+  const address = $("#streetAddress")[0].value;
+  const city = $("#city")[0].value;
+  const state = $("#state")[0].value;
+  const deliveryInstructions = $("#deliveryInstructions")[0].value;
+  const postalCode = $("#postalCode")[0].value;
+
+
+    $.post("/setData", { username, password, address, city, state, birthdayYr, birthdayMo, birthdayDay, deliveryInstructions, postalCode }, loadAccountData);
 }
 
   
