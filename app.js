@@ -27,10 +27,21 @@ var accountInfo = require('./public/data/accountInfo.json');
 
 app.get("/getAccountInfo", function(req, res){
   res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify(accountInfo));
+  //res.end(JSON.stringify(accountInfo));
 });
 
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
 
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("accountInfoDB");
+  dbo.collection("accountInfo").findOne({}, function(err, result) {
+    if (err) throw err;
+    console.log(result.name);
+    db.close();
+  });
+});
 
 app.post("/setData", function (req, res){
   // trips(req.body.idx).rating = req.body.rating;
