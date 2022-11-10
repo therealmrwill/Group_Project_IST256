@@ -45,21 +45,21 @@ app.get("/getAccountInfo", function(req, res){
 });
 
 app.post("/setData", function (req, res){
-  // trips(req.body.idx).rating = req.body.rating;
+  //trips(req.body.idx).rating = req.body.rating;
 
   //User Settings 
-  //accountInfo[0].username = req.body.username;
-  //accountInfo[0].password = req.body.password;
-  //accountInfo[0].birthdayYr = req.body.birthdayYr;
-  //accountInfo[0].birthdayMo = req.body.birthdayMo;
-  //accountInfo[0].birthdayDay = req.body.birthdayDay;
+  //username = req.body.username;
+  //password = req.body.password;
+  //birthdayYr = req.body.birthdayYr;
+  //birthdayMo = req.body.birthdayMo;
+  //birthdayDay = req.body.birthdayDay;
 
   //Location settings
-  //accountInfo[0].address = req.body.address;
-  //accountInfo[0].city = req.body.city;
-  //accountInfo[0].state = req.body.state;
-  //accountInfo[0].postalCode = req.body.postalCode;
- // accountInfo[0].deliveryInstructions = req.body.deliveryInstructions;
+  //address = req.body.address;
+  //city = req.body.city;
+  //state = req.body.state;
+  //postalCode = req.body.postalCode;
+  //deliveryInstructions = req.body.deliveryInstructions;
   
 
   res.setHeader('Content-Type', 'application/json');
@@ -71,8 +71,7 @@ app.post("/setData", function (req, res){
   MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     var dbo = db.db("accountInfoDB");
-    dbo.collection("accountInfo").find({}, {projection: { _id: 0, username: 1, password: 1, address: 1, city: 1, state: 1, birthdayYr: 1, 
-          birthdayMo: 1, birthdayDay: 1, postalCode: 1, deliveryInstructions: 1 }}).toArray(function(err, result) {
+    dbo.collection("accountInfo").find({}).toArray(function(err, result) {
       if (err) throw err;
       console.log(result);
       res.end(JSON.stringify(result));
