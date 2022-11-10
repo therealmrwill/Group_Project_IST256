@@ -28,31 +28,22 @@ app.use('/users', usersRouter);
 app.get("/getAccountInfo", function(req, res){
   res.setHeader('Content-Type', 'application/json');
   //res.end(JSON.stringify(accountInfo));
-});
 
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
+  var MongoClient = require('mongodb').MongoClient;
+  var url = "mongodb://localhost:27017/";
 
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db("accountInfoDB");
-  dbo.collection("accountInfo").find({}).toArray(function(err, result){
+  MongoClient.connect(url, function(err, db) {
     if (err) throw err;
-    console.log(result);
-    db.close();
+    var dbo = db.db("accountInfoDB");
+    dbo.collection("accountInfo").find({}).toArray(function(err, result){
+      if (err) throw err;
+      console.log(result);
+      res.end(JSON.stringify(result));
+      db.close();
+    });
   });
 });
 
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db("accountInfoDB");
-  dbo.collection("accountInfo").find({}, {projection: { _id: 0, username: 1, password: 1, address: 1, city: 1, state: 1, birthdayYr: 1, 
-        birthdayMo: 1, birthdayDay: 1, postalCode: 1, deliveryInstructions: 1 }}).toArray(function(err, result) {
-    if (err) throw err;
-    console.log(result);
-    db.close();
-  });
-});
 app.post("/setData", function (req, res){
   // trips(req.body.idx).rating = req.body.rating;
 
@@ -74,6 +65,20 @@ app.post("/setData", function (req, res){
   res.setHeader('Content-Type', 'application/json');
   //res.end(JSON.stringify(accountInfo)); 
 
+  var MongoClient = require('mongodb').MongoClient;
+  var url = "mongodb://localhost:27017/";
+
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("accountInfoDB");
+    dbo.collection("accountInfo").find({}, {projection: { _id: 0, username: 1, password: 1, address: 1, city: 1, state: 1, birthdayYr: 1, 
+          birthdayMo: 1, birthdayDay: 1, postalCode: 1, deliveryInstructions: 1 }}).toArray(function(err, result) {
+      if (err) throw err;
+      console.log(result);
+      res.end(JSON.stringify(result));
+      db.close();
+    });
+  });
 });
 
 
