@@ -8,7 +8,7 @@ use('accountInfoDB');
 
 // The drop() command destroys all data from a collection.
 // Make sure you run it against the correct database and collection.
-//db.accountInfo.drop();
+db.accountInfo.drop();
 
 // Insert a few documents into the sales collection.
 db.accountInfo.insertMany([
