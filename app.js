@@ -46,13 +46,9 @@ app.get("/getAccountInfo", function(req, res){
 
 app.post("/setData", function (req, res){
   //trips(req.body.idx).rating = req.body.rating;
-
   //User Settings 
-
   //Location settings
-
   
-
   res.setHeader('Content-Type', 'application/json');
   //res.end(JSON.stringify(accountInfo)); 
 
@@ -62,7 +58,8 @@ app.post("/setData", function (req, res){
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
       var dbo = db.db("accountInfoDB");
-      var myquery = { username: req.body.username, password: req.body.password,
+      var myquery = { };
+      var newvalues = { $set: {username: req.body.username, password: req.body.password,
         birthdayYr: req.body.birthdayYr,
         birthdayMo: req.body.birthdayMo,
         birthdayDay: req.body.birthdayDay,  
@@ -70,12 +67,11 @@ app.post("/setData", function (req, res){
         city: req.body.city,
         state: req.body.state,
         postalCode: req.body.postalCode,
-        deliveryInstructions: req.body.deliveryInstructions};
-      var newvalues = { $set: {name: "Mickey", address: "Canyon 123" } };
+        deliveryInstructions: req.body.deliveryInstructions} };
       dbo.collection("accountInfo").updateOne(myquery, newvalues, function(err, res) {
         if (err) throw err;
         console.log("1 document updated");
-        res.end(JSON.stringify(result));
+        res.end(JSON.stringify(newvalues));
         db.close();
       });
     });
