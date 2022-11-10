@@ -48,18 +48,9 @@ app.post("/setData", function (req, res){
   //trips(req.body.idx).rating = req.body.rating;
 
   //User Settings 
-  //username = req.body.username;
-  //password = req.body.password;
-  //birthdayYr = req.body.birthdayYr;
-  //birthdayMo = req.body.birthdayMo;
-  //birthdayDay = req.body.birthdayDay;
 
   //Location settings
-  //address = req.body.address;
-  //city = req.body.city;
-  //state = req.body.state;
-  //postalCode = req.body.postalCode;
-  //deliveryInstructions = req.body.deliveryInstructions;
+
   
 
   res.setHeader('Content-Type', 'application/json');
@@ -68,16 +59,26 @@ app.post("/setData", function (req, res){
   var MongoClient = require('mongodb').MongoClient;
   var url = "mongodb://localhost:27017/";
 
-  MongoClient.connect(url, function(err, db) {
-    if (err) throw err;
-    var dbo = db.db("accountInfoDB");
-    dbo.collection("accountInfo").find({}).toArray(function(err, result) {
+    MongoClient.connect(url, function(err, db) {
       if (err) throw err;
-      console.log(result);
-      res.end(JSON.stringify(result));
-      db.close();
+      var dbo = db.db("accountInfoDB");
+      var myquery = { username: req.body.username, password: req.body.password,
+        birthdayYr: req.body.birthdayYr,
+        birthdayMo: req.body.birthdayMo,
+        birthdayDay: req.body.birthdayDay,  
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        postalCode: req.body.postalCode,
+        deliveryInstructions: req.body.deliveryInstructions};
+      var newvalues = { $set: {name: "Mickey", address: "Canyon 123" } };
+      dbo.collection("accountInfo").updateOne(myquery, newvalues, function(err, res) {
+        if (err) throw err;
+        console.log("1 document updated");
+        res.end(JSON.stringify(result));
+        db.close();
+      });
     });
-  });
 });
 
 
