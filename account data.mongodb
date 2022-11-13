@@ -13,16 +13,16 @@ db.accountInfo.drop();
 // Insert a few documents into the sales collection.
 db.accountInfo.insertMany([
     {   
-        "username": "",
-        "password": "",
-        "address": "",
-        "city": "",
-        "state": "",
+        "username": " ",
+        "password": " ",
+        "address": " ",
+        "city": " ",
+        "state": " ",
         "birthdayYr": 0,
         "birthdayMo": 0,
         "birthdayDay": 0,
         "postalCode": 0,
-        "deliveryInstructions": ""
+        "deliveryInstructions": " "
     }
 ]);
 

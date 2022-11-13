@@ -71,7 +71,7 @@ app.post("/setData", function (req, res){
       dbo.collection("accountInfo").updateOne(myquery, newvalues, function(err, res) {
         if (err) throw err;
         console.log("1 document updated");
-        res.end(JSON.stringify(newvalues));
+        //res.end(JSON.stringify(newvalues));
         db.close();
       });
     });

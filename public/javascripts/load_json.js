@@ -29,6 +29,7 @@ function getInfo(){
 function loadAccountData(accountInfo){
       const currentAccount = accountInfo[0];
 
+      console.log(currentAccount);
 
       //User Info 
       const userName = $("#username").val(currentAccount.username);
