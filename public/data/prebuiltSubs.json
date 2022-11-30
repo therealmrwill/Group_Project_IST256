@@ -1,5 +1,9 @@
 [
     {"title": "Grilled Cheese", "image": "grilledcheese.jpg" },
     {"title": "Italian", "image": "italian.jpg" },
-    {"title": "Roast Beef", "image": "roastbeef.jpg" }    
+    {"title": "Roast Beef", "image": "roastbeef.jpg" },
+    {"title": "BLT", "image": "BLT_v2.jpeg" },
+    {"title": "Ham and Cheese", "image": "hamAndCheese.jpeg" },
+    {"title": "Turkey", "image": "Turkey.webp" }
+        
 ]

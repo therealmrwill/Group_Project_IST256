@@ -32,7 +32,11 @@ img{
 }
 
 
-#imageBuilder{
+#imageBuilder1{
+  display: flex;
+}
+
+#imageBuilder2{
   display: flex;
 }
 

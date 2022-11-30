@@ -1,11 +1,22 @@
 function updateImage(data){
-    for(i=0; i<data.length; i++){
+    for(i=0; i<data.length; i++){        
+
         const imageInfo = data[i];
         const span = $("<p id='prebuiltSandwiches'>").text(imageInfo.title);
         const img = $("<img/ id='prebuiltSandwiches'>").attr("src", "/images/"+imageInfo.image);
         const div = $("<div></div>").append(img).append(span);
-        $("#imageBuilder").append(div);
+
+        
+
+        if(i < 3){
+          $("#imageBuilder1").append(div);
+        }
+        else{
+          $("#imageBuilder2").append(div);
+        }
     }
+
+    
 }
 
 $(document).ready(function (){
