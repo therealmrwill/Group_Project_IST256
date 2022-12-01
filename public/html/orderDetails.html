@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="../javascripts/load_json.js"></script>
+    <title>Order Details</title>
+</head>
+<body style="background-color:cornflowerblue" onload='getAccountInfo()'>
+    <div class="container-fluid bg-dark text-white text-center">  
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Between Two</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item active">
+                      <a class="nav-link" id="headerItem" href="../index.html">Home <span class="sr-only"></span></a>
+                    </li>
+                    
+                    <li class="nav-item active">
+                        <a class="nav-link"  id="headerItem"  href="orderMain.html">Order <span class="sr-only"></span></a>
+                      </li>
+    
+                      <div style="padding-right: 400px;"></div>
+    
+                      <!-- <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" id="searchItem" style="text-align: left;" type="search" placeholder="Search for popular orders" aria-label="Search">
+                      </form> -->
+    
+                      <!-- <div style="padding-left: 50px;"></div> -->
+    
+                  <li class="nav-item active">
+                    <a class="nav-link" id="headerItem" href="../html/accountDetails.html">Login <span class="sr-only"></span></a>
+                  </li>
+    
+                  <li class="nav-item active">
+                    <a class="nav-link" id="headerItem"  href="../html/orderDetails.html">Order Details <span class="sr-only"></span></a>
+                  </li>  
+            </div>
+          </nav> 
+        </div>
+    
+        <div class="parent">
+
+            <div id="orderDetailsContent"></div>
+                
+        </div>
+
+    
+</body>
+</html>

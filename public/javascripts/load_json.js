@@ -19,6 +19,48 @@ function updateImage(data){
     
 }
 
+function getAccountInfo(){
+  $.get("/getAccountInfo", loadnewAccountDetails); 
+  $.get("METHOD TO LOAD ORDER DETAILS", loadOrderDetails);
+}
+
+
+function loadnewAccountDetails(accountInfo){
+  //Need to pull both the account data and the order data
+  const currentAccount = accountInfo[0];
+
+  console.log(currentAccount);
+
+  const userName = "\nUsername: " + (currentAccount.username);
+  const password = "\nPassword: " + (currentAccount.password);
+  const birthday = "Birthday: " + (currentAccount.birthdayMo) + " / " + (currentAccount.birthdayDay) + " / " + (currentAccount.birthdayYr);
+
+
+  //Location Info
+  const address = "\nAddress: " +(currentAccount.address);
+  const city = "\nCity: " +(currentAccount.city);
+  const state = "\nState: " +(currentAccount.state);
+  const postalCode = "\nPostal code: " +(currentAccount.postalCode);
+  const deliveryInstructions = "\nDelivery instructions: " +(currentAccount.deliveryInstructions);
+
+  
+
+
+  $('#orderDetailsContent').append(userName).append("<br>").append(password).append("<br>").append(birthday).append("<br>").append(address).append("<br>").append(city).append("<br>").append(state).append("<br>").append(postalCode).append("<br>").append(deliveryInstructions);
+  
+
+}
+
+function loadOrderDetails(orderInfo){
+  //Order Info
+  const name = $("<p id='prebuiltSandwiches'>").text(orderInfo.title);
+  const img = $("<img/ id='prebuiltSandwiches'>").attr("src", "/images/"+orderInfo.image);
+
+  $('$orderDetailsContent').append(name).append(img);
+}
+
+
+
 $(document).ready(function (){
     $.get("../data/prebuiltSubs.json", updateImage);
 })
@@ -35,6 +77,8 @@ $(document).ready(function(){
 function getInfo(){
     $.get("/getAccountInfo", loadAccountData);
 }
+
+
 
 
 function loadAccountData(accountInfo){
@@ -62,6 +106,7 @@ function loadAccountData(accountInfo){
 
 
 function saveAccountData(){
+
 
   //User Info
   const username = $('#username')[0].value;
