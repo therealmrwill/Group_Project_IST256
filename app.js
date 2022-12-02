@@ -77,6 +77,46 @@ app.post("/setData", function (req, res){
     });
 });
 
+//sandwhich get
+app.get("/getSandwichInfo", function(req, res){
+  res.setHeader('Content-Type', 'application/json');
+
+  var MongoClient = require('mongodb').MongoClient;
+  var url = "mongodb://localhost:27017/";
+
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("sandwichInfoDB");
+    dbo.collection("sandwichInfo").find({}).toArray(function(err, result){
+      if (err) throw err;
+      console.log(result);
+      res.end(JSON.stringify(result));
+      db.close();
+    });
+  });
+});
+
+//sandwich set
+app.post("/setSandwich", function (req, res){
+  
+  res.setHeader('Content-Type', 'application/json');
+
+  var MongoClient = require('mongodb').MongoClient;
+  var url = "mongodb://localhost:27017/";
+
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db("sandwichInfoDB");
+      var myquery = { };
+      var newvalues = { $set: {name: req.body.name, url: req.body.url,} };
+      dbo.collection("sandwichInfo").updateOne(myquery, newvalues, function(err, res) {
+        if (err) throw err;
+        console.log("1 document updated");
+        db.close();
+      });
+    });
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
