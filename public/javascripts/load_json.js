@@ -21,7 +21,7 @@ function updateImage(data){
 
 function getAccountInfo(){
   $.get("/getAccountInfo", loadnewAccountDetails); 
-  $.get("METHOD TO LOAD ORDER DETAILS", loadOrderDetails);
+  //$.get("METHOD TO LOAD ORDER DETAILS", loadOrderDetails);
 }
 
 
