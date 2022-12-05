@@ -19,11 +19,10 @@ function updateImage(data){
 
 function getAccountInfo(){
   $.get("/getAccountInfo", loadnewAccountDetails); 
-<<<<<<< HEAD
   //$.get("METHOD TO LOAD ORDER DETAILS", loadOrderDetails);
-=======
-  $.get("/getSandwichInfo", loadNewOrderDetails);
->>>>>>> d884afd7302bb92f6bc932481ca4be71e3871c08
+
+  
+
 }
 
 
