@@ -15,13 +15,15 @@ function updateImage(data){
           $("#imageBuilder2").append(div);
         }
     }
-
-    
 }
 
 function getAccountInfo(){
   $.get("/getAccountInfo", loadnewAccountDetails); 
+<<<<<<< HEAD
   //$.get("METHOD TO LOAD ORDER DETAILS", loadOrderDetails);
+=======
+  $.get("/getSandwichInfo", loadNewOrderDetails);
+>>>>>>> d884afd7302bb92f6bc932481ca4be71e3871c08
 }
 
 
@@ -43,22 +45,9 @@ function loadnewAccountDetails(accountInfo){
   const postalCode = "\nPostal code: " +(currentAccount.postalCode);
   const deliveryInstructions = "\nDelivery instructions: " +(currentAccount.deliveryInstructions);
 
-  
-
 
   $('#orderDetailsContent').append(userName).append("<br>").append(password).append("<br>").append(birthday).append("<br>").append(address).append("<br>").append(city).append("<br>").append(state).append("<br>").append(postalCode).append("<br>").append(deliveryInstructions);
-  
-
 }
-
-function loadOrderDetails(orderInfo){
-  //Order Info
-  const name = $("<p id='prebuiltSandwiches'>").text(orderInfo.title);
-  const img = $("<img/ id='prebuiltSandwiches'>").attr("src", "/images/"+orderInfo.image);
-
-  $('$orderDetailsContent').append(name).append(img);
-}
-
 
 
 $(document).ready(function (){
@@ -78,8 +67,39 @@ function getInfo(){
     $.get("/getAccountInfo", loadAccountData);
 }
 
+function getSandwichInfo(){
+  $.get("/getSandwichInfo", loadOrderDetails);
+}
 
+function loadNewOrderDetails(sandwichInfo){
+  //Order Info
+  const currentsandwich = sandwichInfo[0];
 
+  console.log(currentsandwich);
+
+  const name = $("<p id='prebuiltSandwiches'>").text(currentsandwich.name);
+  const url = $("<img/ id='prebuiltSandwiches'>").attr("src", "/images/"+currentsandwich.url);
+
+  $('$orderDetailsContent').append(name).append(url);
+}
+
+function loadOrderDetails(sandwichInfo){
+  const currentsandwich = sandwichInfo[0];
+
+  console.log(currentsandwich);
+
+  //sandwich info
+  const name = $("#name").val(currentsandwich.name);
+  const url = $("#url").val(currentsandwich.url);
+   
+} 
+function saveSandwich(){
+  //Sandwich name & image
+  const name = $('#name')[0].value;
+  const url = $('#url')[0].value;
+
+    $.post("/setSandwich", {name, url}, loadOrderDetails);
+}
 
 function loadAccountData(accountInfo){
       const currentAccount = accountInfo[0];
